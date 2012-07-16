@@ -1,0 +1,20 @@
+author: haiqiong yao
+date: June 12, 2012
+
+1. Search app produces keyword-based results and content-search resutls.
+(a)The recommendation pages come from keyword-based results.
+(b)The general search pages come from content-search results.
+
+The query is typed from the /search/ page.
+The keyword-based search can search multiple words of the query, and remove redundant results.
+
+The keyword for each page are stored in model.
+
+/search/admin.py: add search->search keyword in /admin/.
+
+/search/views.py: 
+(a)searchkeyword__keyword is the keyword field of the SearchKeyword model.
+(b)lookup operator: searchkeyword__keyword__in=query.split()
+										content__icontains=query
+										#icontains: case-insensitive contain check.
+
